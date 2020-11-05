@@ -550,7 +550,6 @@ decl_module! {
 			let mut gas_meter = GasMeter::new(gas_limit);
 
 			let caller = MODULE_ID.into_account();
-
 			let result = Self::execute_wasm(caller, &mut gas_meter, |ctx, gas_meter| {
 				ctx.call(dest, value, gas_meter, data)
 			});
@@ -579,7 +578,6 @@ decl_module! {
 			let mut gas_meter = GasMeter::new(gas_limit);
 
 			let caller = MODULE_ID.into_account();
-
 			let result = Self::execute_wasm(caller, &mut gas_meter, |ctx, gas_meter| {
 				ctx.instantiate(endowment, gas_meter, &code_hash, data)
 					.map(|(_address, output)| output)
